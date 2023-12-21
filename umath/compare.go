@@ -6,10 +6,13 @@ type numerical interface {
 		float32 | float64
 }
 
-func Max[T numerical](a, b T, others ...T) T {
-	res := max(a, b)
-	for _, v := range others {
-		res = max(res, v)
+func Max[T numerical](nums ...T) T {
+	if len(nums) == 0 {
+		return 0
+	}
+	res := nums[0]
+	for i := 1; i < len(nums); i++ {
+		res = max(res, nums[i])
 	}
 
 	return res
@@ -23,10 +26,13 @@ func max[T numerical](a, b T) T {
 	return b
 }
 
-func Min[T numerical](a, b T, others ...T) T {
-	res := min(a, b)
-	for _, v := range others {
-		res = min(res, v)
+func Min[T numerical](nums ...T) T {
+	if len(nums) == 0 {
+		return 0
+	}
+	res := nums[0]
+	for i := 1; i < len(nums); i++ {
+		res = min(res, nums[i])
 	}
 
 	return res
