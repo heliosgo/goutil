@@ -1,12 +1,8 @@
 package umath
 
-type numerical interface {
-	int | int8 | int16 | int32 | int64 |
-		uint | uint8 | uint16 | uint32 | uint64 |
-		float32 | float64
-}
+import "goutil/utype"
 
-func Max[T numerical](nums ...T) T {
+func Max[T utype.Number](nums ...T) T {
 	if len(nums) == 0 {
 		return 0
 	}
@@ -18,7 +14,7 @@ func Max[T numerical](nums ...T) T {
 	return res
 }
 
-func max[T numerical](a, b T) T {
+func max[T utype.Number](a, b T) T {
 	if a > b {
 		return a
 	}
@@ -26,7 +22,7 @@ func max[T numerical](a, b T) T {
 	return b
 }
 
-func Min[T numerical](nums ...T) T {
+func Min[T utype.Number](nums ...T) T {
 	if len(nums) == 0 {
 		return 0
 	}
@@ -38,7 +34,7 @@ func Min[T numerical](nums ...T) T {
 	return res
 }
 
-func min[T numerical](a, b T) T {
+func min[T utype.Number](a, b T) T {
 	if a < b {
 		return a
 	}
