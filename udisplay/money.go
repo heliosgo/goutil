@@ -43,10 +43,6 @@ func UpperRMB[T utype.Number | string](amount T) (string, error) {
 	return upperRMB(str)
 }
 
-func formatInt[T utype.Int](x T) string {
-	return strconv.FormatInt(int64(x), 10)
-}
-
 func upperRMB(amount string) (string, error) {
 	matched, err := regexp.MatchString(
 		`^¥?([0-9]+|[0-9]{1,3}(,[0-9]{3})*)(.[0-9]+)?$`,
